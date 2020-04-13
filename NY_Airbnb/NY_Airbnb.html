@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<!-- Load d3.js -->
+<script src="https://d3js.org/d3.v4.js"></script>
+
+<!-- Load jquery-csv -->
+<script src="jquerycsv.min.js"></script>
+
+
+<!-- Create a div where the graph will take place -->
+<div id="my_dataviz"></div>
+
+<!--
+<div class="app-wrapper">
+    <div>
+      <label for="file">Search File </label>
+      <input type="file" id="file">
+    </div>
+  </div>
+ .--> 
+  
+  
+  
+<!-- CUSTOM VISUALIZATION SCRIPT -->
+<script type="text/javascript" src="NY_Airbnb.js"></script>
+
+<script>
+    var ROUTE_DATA = "../Data/NY_Airbnb/AB_NYC_2019.csv"
+    
+    d3.csv(ROUTE_DATA)
+  .row(function(d) {
+        return {
+            age: d.age,
+            name: d.name.toUpperCase() // converting name to upper case 
+        }; 
+   })
+  .get(function(data) {
+      console.log(data);
+  }); 
+/*
+    d3.csv(ROUTE_DATA)
+    .then(function(data){
+        console.log('YEI')
+    })
+    .catch(function(error){
+        console.log('BOOM!!')
+    })
+    
+    */
+    /*
+    d3.text("data.csv", function(data) {
+                var parsedCSV = d3.csv.parseRows(data);
+
+                var container = d3.select("body")
+                    .append("table")
+
+                    .selectAll("tr")
+                        .data(parsedCSV).enter()
+                        .append("tr")
+
+                    .selectAll("td")
+                        .data(function(d) { return d; }).enter()
+                        .append("td")
+                        .text(function(d) { return d; });
+            }); 
+            
+            */
+    
+   /* 
+    (function () {
+  var fileInput = document.querySelector('#file');
+  var reader = new FileReader ();
+  fileInput.addEventListener('change', readCSVFile);
+  reader.addEventListener('loadend', processData);
+
+  function readCSVFile (e) {
+    reader.readAsText(e.target.files[0]);
+  }
+
+
+
+  function processData() {
+    var allTextLines = reader.result.split(/\r\n|\n/);
+    var headers = allTextLines[0].split(',');
+    var lines = [];
+
+    for (var i=1; i<allTextLines.length; i++) {
+
+        var data = allTextLines[i].split(',');
+        if (data.length == headers.length) {
+            var row = {};
+            for (var j=0; j< headers.length; j++) {
+               row[headers[j].trim()] = data[j].trim();
+
+            }
+            lines.push(row);
+        }
+    }
+    console.log(lines);
+  }
+
+})();
+
+*/
+</script>
+<!-- Color Scale -->
+<!--<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+-->
