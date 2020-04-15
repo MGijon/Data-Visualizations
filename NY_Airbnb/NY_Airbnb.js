@@ -17,6 +17,7 @@ var svg = d3.select("#my_dataviz")
 
 var ROUTE_DATA = "../Data/NY_Airbnb/AB_NYC_2019.csv"
 
+/*
 d3.csv(ROUTE_DATA)
     .then(function(data){
         console.log('YEI')
@@ -24,17 +25,11 @@ d3.csv(ROUTE_DATA)
     .catch(function(error){
         console.log('BOOM!!')
     })
-
-
-
-/*d3.csv("AB_NYC_2019.csv", function(data){
-    console.log('entra')
-    console.log(data) 
-}); 
 */
-/*
+
+
 //Read the data
-d3.csv("../Data/NY_Airbnb/AB_NYC_2019.csv", function(data) {
+d3.csv("https://raw.githubusercontent.com/MGijon/Data-Visualizations/master/Data/NY_Airbnb/AB_NYC_2019.csv", function(data) {
     
     
     console.log('Entra en la función muhhahahhah')
@@ -61,15 +56,23 @@ d3.csv("../Data/NY_Airbnb/AB_NYC_2019.csv", function(data) {
 
     // Reformat the data: we need an array of arrays of {x, y} tuples
     var dataReady = allGroup.map( function(grpName) { // .map allows to do something for each element of the list
+      console.log('aquí también')
+    /*
       return {
         name: grpName,
         values: data.map(function(d) {
-          return {time: d.time, value: +d[grpName]};
+            console.log('yiiii')
+         // return {time: d.time, value: +d[grpName]};
         })
+          
       };
+      
+      */
+        
+        
     });
     
-    
+
     // I strongly advise to have a look to dataReady with
     console.log(dataReady)
 
@@ -139,8 +142,6 @@ d3.csv("../Data/NY_Airbnb/AB_NYC_2019.csv", function(data) {
           .style("font-size", 15)
 
 })
-
-*/
 
 
 /* REFERENCES: 
