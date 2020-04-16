@@ -53,28 +53,39 @@ d3.csv("https://raw.githubusercontent.com/MGijon/Data-Visualizations/master/Data
                     "calculated_host_listings_count",  // calculated_host_listings_count
                     "availability_365",                // number of days when listing is available for booking
                    ] 
-
     // Reformat the data: we need an array of arrays of {x, y} tuples
     var dataReady = allGroup.map( function(grpName) { // .map allows to do something for each element of the list
       console.log('aquí también')
-    /*
+    
       return {
         name: grpName,
         values: data.map(function(d) {
-            console.log('yiiii')
-         // return {time: d.time, value: +d[grpName]};
+            
+            /*
+            return {
+                id: d.id /*, name: +d[grpName] 
+            };
+                         
+            */
+            
+            return {
+                id: d.id, 
+                name: d.name, 
+                host_id: d.host_id
+            }
+                         
         })
-          
-      };
-      
-      */
-        
-        
+    
+      };  
+
     });
+    
+    
     
 
     // I strongly advise to have a look to dataReady with
     console.log(dataReady)
+    console.log(grpName)
 
     // A color scale: one color for each group
     var myColor = d3.scaleOrdinal()
