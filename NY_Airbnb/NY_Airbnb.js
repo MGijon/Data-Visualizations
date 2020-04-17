@@ -64,14 +64,28 @@ d3.csv("https://raw.githubusercontent.com/MGijon/Data-Visualizations/master/Data
             /*
             return {
                 id: d.id /*, name: +d[grpName] 
-            };
+            };   
                          
             */
             
             return {
                 id: d.id, 
                 name: d.name, 
-                host_id: d.host_id
+                host_id: d.host_id,
+                host_name: d.host_name, 
+                neighbourhood_group: d.neighbourhood_group,
+                neighbourhood: d.neighbourhood,
+                latitude: d.latitude,
+                longitude: d.longitude,
+                room_type: d.room_type,
+                price: d.price,
+                minimun_nights: d.minimun_nights,
+                number_of_reviews: d.number_of_reviews,
+                last_review: d.last_review,
+                reviws_per_month: d.reviws_per_month,
+                last_review: d.last_review,
+                calculated_host_listings_count: d.calculated_host_listings_count,
+                availability_365: d.availability_365
             }
                          
         })
@@ -85,8 +99,7 @@ d3.csv("https://raw.githubusercontent.com/MGijon/Data-Visualizations/master/Data
 
     // I strongly advise to have a look to dataReady with
     console.log(dataReady)
-    console.log(grpName)
-
+/*
     // A color scale: one color for each group
     var myColor = d3.scaleOrdinal()
       .domain(allGroup)
@@ -151,12 +164,12 @@ d3.csv("https://raw.githubusercontent.com/MGijon/Data-Visualizations/master/Data
           .text(function(d) { return d.name; })
           .style("fill", function(d){ return myColor(d.name) })
           .style("font-size", 15)
-
+*/
 })
 
 
 /* REFERENCES: 
 
 (1) https://www.tutorialsteacher.com/d3js/loading-data-from-file-in-d3js
-
+(2) http://learnjsdata.com/read_data.html
 */
