@@ -15,17 +15,7 @@ var svg = d3.select("#my_dataviz")
 
 
 
-var ROUTE_DATA = "../Data/NY_Airbnb/AB_NYC_2019.csv"
-
-/*
-d3.csv(ROUTE_DATA)
-    .then(function(data){
-        console.log('YEI')
-    })
-    .catch(function(error){
-        console.log('BOOM!!')
-    })
-*/
+var ROUTE_DATA = "https://raw.githubusercontent.com/MGijon/Data-Visualizations/master/Data/NY_Airbnb/AB_NYC_2019.csv"
 
 
 //Read the data
@@ -55,7 +45,7 @@ d3.csv("https://raw.githubusercontent.com/MGijon/Data-Visualizations/master/Data
                    ] 
     // Reformat the data: we need an array of arrays of {x, y} tuples
     var dataReady = allGroup.map( function(grpName) { // .map allows to do something for each element of the list
-      console.log('aquí también')
+      //console.log('aquí también')
     
       return {
         name: grpName,
@@ -70,22 +60,22 @@ d3.csv("https://raw.githubusercontent.com/MGijon/Data-Visualizations/master/Data
             
             return {
                 id: d.id, 
-                name: d.name, 
-                host_id: d.host_id,
-                host_name: d.host_name, 
-                neighbourhood_group: d.neighbourhood_group,
-                neighbourhood: d.neighbourhood,
-                latitude: d.latitude,
-                longitude: d.longitude,
-                room_type: d.room_type,
-                price: d.price,
-                minimun_nights: d.minimun_nights,
-                number_of_reviews: d.number_of_reviews,
-                last_review: d.last_review,
-                reviws_per_month: d.reviws_per_month,
-                last_review: d.last_review,
-                calculated_host_listings_count: d.calculated_host_listings_count,
-                availability_365: d.availability_365
+                name: +d.name, 
+                host_id: +d.host_id,
+                host_name: +d.host_name, 
+                neighbourhood_group: +d.neighbourhood_group,
+                neighbourhood: +d.neighbourhood,
+                latitude: +d.latitude,
+                longitude: +d.longitude,
+                room_type: +d.room_type,
+                price: +d.price,
+                minimun_nights: +d.minimun_nights,
+                number_of_reviews: +d.number_of_reviews,
+                last_review: +d.last_review,
+                reviws_per_month: +d.reviws_per_month,
+                last_review: +d.last_review,
+                calculated_host_listings_count: +d.calculated_host_listings_count,
+                availability_365: +d.availability_365
             }
                          
         })
@@ -95,6 +85,7 @@ d3.csv("https://raw.githubusercontent.com/MGijon/Data-Visualizations/master/Data
     });
     
     
+
     
 
     // I strongly advise to have a look to dataReady with
@@ -164,7 +155,7 @@ d3.csv("https://raw.githubusercontent.com/MGijon/Data-Visualizations/master/Data
           .text(function(d) { return d.name; })
           .style("fill", function(d){ return myColor(d.name) })
           .style("font-size", 15)
-*/
+          */
 })
 
 
@@ -172,4 +163,31 @@ d3.csv("https://raw.githubusercontent.com/MGijon/Data-Visualizations/master/Data
 
 (1) https://www.tutorialsteacher.com/d3js/loading-data-from-file-in-d3js
 (2) http://learnjsdata.com/read_data.html
+(3) https://www.d3-graph-gallery.com/graph/basic_datamanipulation.html
+
 */
+
+
+
+/* BAD CODE 
+   ======== */
+
+
+
+/*
+d3.csv(ROUTE_DATA)
+    .then(function(data){
+        console.log('YEI')
+    })
+    .catch(function(error){
+        console.log('BOOM!!')
+    })
+*/ 
+
+
+
+
+
+
+
+
