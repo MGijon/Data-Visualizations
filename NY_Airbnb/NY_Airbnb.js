@@ -18,11 +18,12 @@ var svg = d3.select("#my_dataviz")
 var ROUTE_DATA = "https://raw.githubusercontent.com/MGijon/Data-Visualizations/master/Data/NY_Airbnb/AB_NYC_2019.csv"
 
 
-//Read the data
+//This function converts the csv into an ARRAY OF OBJECTS
 d3.csv("https://raw.githubusercontent.com/MGijon/Data-Visualizations/master/Data/NY_Airbnb/AB_NYC_2019.csv", function(data) {
     
     
-    console.log('Entra en la función muhhahahhah')
+    console.log(data[0])
+    console.log(data[0]["name"])    // así podemos acceder a los datos sin problemas
     
     
     // List of groups 
@@ -43,10 +44,12 @@ d3.csv("https://raw.githubusercontent.com/MGijon/Data-Visualizations/master/Data
                     "calculated_host_listings_count",  // calculated_host_listings_count
                     "availability_365",                // number of days when listing is available for booking
                    ] 
+    
+    
+    // DONT SEE WHY THIS STEP PREVIOUS TO VISUALIZATION
     // Reformat the data: we need an array of arrays of {x, y} tuples
     var dataReady = allGroup.map( function(grpName) { // .map allows to do something for each element of the list
       //console.log('aquí también')
-    
       return {
         name: grpName,
         values: data.map(function(d) {
@@ -76,20 +79,63 @@ d3.csv("https://raw.githubusercontent.com/MGijon/Data-Visualizations/master/Data
                 last_review: +d.last_review,
                 calculated_host_listings_count: +d.calculated_host_listings_count,
                 availability_365: +d.availability_365
-            }
-                         
+            }               
         })
-    
       };  
-
     });
     
     
 
     
+    console.log('Estructura de los datos una vez pasados del array de objetos a otra variable:')
 
     // I strongly advise to have a look to dataReady with
     console.log(dataReady)
+    console.log(data)
+
+})
+
+
+/* REFERENCES: 
+
+(1) https://www.tutorialsteacher.com/d3js/loading-data-from-file-in-d3js
+(2) http://learnjsdata.com/read_data.html
+(3) https://www.d3-graph-gallery.com/graph/basic_datamanipulation.html
+
+*/
+
+
+/* ======================================================================================================================================
+   ======================================================================================================================================
+   ======================================================================================================================================
+   ======================================================================================================================================
+   
+   
+   ======================================================================================================================================
+   ======================================================================================================================================
+   ======================================================================================================================================
+   ====================================================================================================================================== */
+
+
+   
+/* BAD CODE 
+   ======== */
+
+
+
+/*
+d3.csv(ROUTE_DATA)
+    .then(function(data){
+        console.log('YEI')
+    })
+    .catch(function(error){
+        console.log('BOOM!!')
+    })
+*/ 
+
+
+
+
 /*
     // A color scale: one color for each group
     var myColor = d3.scaleOrdinal()
@@ -156,34 +202,6 @@ d3.csv("https://raw.githubusercontent.com/MGijon/Data-Visualizations/master/Data
           .style("fill", function(d){ return myColor(d.name) })
           .style("font-size", 15)
           */
-})
-
-
-/* REFERENCES: 
-
-(1) https://www.tutorialsteacher.com/d3js/loading-data-from-file-in-d3js
-(2) http://learnjsdata.com/read_data.html
-(3) https://www.d3-graph-gallery.com/graph/basic_datamanipulation.html
-
-*/
-
-
-
-/* BAD CODE 
-   ======== */
-
-
-
-/*
-d3.csv(ROUTE_DATA)
-    .then(function(data){
-        console.log('YEI')
-    })
-    .catch(function(error){
-        console.log('BOOM!!')
-    })
-*/ 
-
 
 
 
