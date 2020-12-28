@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<head>
+  <title>Global Temperatures Visualization</title>
+</head>
+<body>
+
+  <script src="https://d3js.org/d3.v4.js"></script>
+  <script type="text/javascript">
+  // "datasets/GlobalLandTemperaturesByMajorCity.csv"
+  // https://raw.githubusercontent.com/MGijon/Data-Visualizations/master/NY_AirBB_Bokeh/AB_NYC_2019.csv
+  const path = "datasets/GlobalLandTemperaturesByMajorCity.csv"
+
+    d3.csv(path, function(data){console.log(data);})
+      //.then(function(data){
+      //  console.log(data);
+      //});
+  </script>
+</body>
